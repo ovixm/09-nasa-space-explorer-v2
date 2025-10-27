@@ -5,9 +5,30 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: 'Helvetica';
+  src: url(fonts/Helvetica.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourceSans3';
+  src: url(fonts/SourceSans3.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url(fonts/Merriweather.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Base page styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Merriweather';
   background-color: #f1f1f1;
   padding: 20px;
 }
@@ -32,6 +53,10 @@ h1 {
   font-family: Verdana, sans-serif;
   font-weight: bold;
   color: #212121;
+}
+
+h2 {
+  font-family: 'Helvetica';
 }
 
 /* Logo */
@@ -66,12 +91,12 @@ button {
 
 /* Button specific */
 button {
-  background-color: #d3d3d3;
+  background-color: #aeb0b5;;
   color: black;
   cursor: pointer;
 }
 button:hover {
-  background-color: #bfbfbf;
+  background-color: #5b616b;
 }
 
 /* Stack horizontally on wider screens */
@@ -86,6 +111,81 @@ button:hover {
     width: auto;
   }
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.45);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  max-height: 60vh;
+  object-fit: contain;
+  background: white;
+  padding: 8px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  margin: 0 auto;
+}
+
+.modal-info {
+  text-align: left;
+  color: #061f4a;
+  max-width: 900px;
+  background: white;
+  padding: 18px 20px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  margin: 0 auto 12px auto;
+  font-family: 'Merriweather';
+}
+
+.modal h1 {
+  margin-bottom: 8px;
+  font-family: 'Helvetica';
+  font-weight: bold;
+  color: #061f4a;
+  font-size: 20px;
+}
+
+.modal h2 {
+  margin-bottom: 6px;
+  color: #5b616b;
+  font-size: 14px;
+}
+
+.modal p {
+  color: #333;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.close {
+  position: absolute;
+  top: 18px;
+  right: 26px;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+
 
 /* Gallery flex container */
 .gallery {
@@ -102,12 +202,20 @@ button:hover {
   min-width: 280px;
   max-width: 500px;
   background: white;
+  color: #061f4a;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #e1f3f8;
+  transform: scale(1.05);
 }
 
 /* Three columns on wider screens */
